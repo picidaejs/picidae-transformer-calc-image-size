@@ -12,9 +12,8 @@
   ],
   "author": "imcuttle",
   "license": "MIT",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
-    "markdown-image-size": "^1.1.2"
+    "markdown-image-size": "^1.2.0"
   }
 }
