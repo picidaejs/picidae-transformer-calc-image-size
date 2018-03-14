@@ -1,24 +1,24 @@
-
 var markDownImageSize = require('markdown-image-size')
+var nps = require('path')
 
 function opts(options) {
   var settings = options || {}
   return Object.assign({
     devEnable: false,
-    debug: true,
+    debug: false,
     source: '',
     ignoreRelative: false
   }, settings)
 }
 
-
-
 exports.markdownTransformer = function(options, gift) {
+  var filename = gift.filesMap[gift.path]
+
   options = opts(options)
   if (options.devEnable || process.env.NODE_ENV === 'production') {
     try {
       return markDownImageSize(gift.data, {
-        source: options.source,
+        source: nps.dirname(filename),
         log: options.debug,
         ignoreRelative: options.ignoreRelative
       })
